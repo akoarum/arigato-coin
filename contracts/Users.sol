@@ -16,13 +16,17 @@ contract Users is Ownable {
 
   event UserAdded(string name, string email);
   event UserUpdated(string name, string email);
+
+  function getUsers() external view returns (User[] memory) {
+    return users;
+  }
   
-  function getUserByAddress(address _userAddress) view internal returns (string memory, string memory, address) {
+  function getUserByAddress(address _userAddress) view public returns (string memory, string memory, address) {
     User memory _user = users[userId[_userAddress]];
     return (_user.name, _user.email, _user.userAddress);
   }
 
-  function getIsExistedUser(address _userAddress) view internal returns (bool) {
+  function getIsExistedUser(address _userAddress) view public returns (bool) {
     string memory _name;
     string memory _email;
     address _address;

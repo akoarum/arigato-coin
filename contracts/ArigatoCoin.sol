@@ -29,9 +29,9 @@ contract ArigatoCoin is ERC20, Users {
   }
 
   function arigato(address _to, string memory _message, uint _amount) public returns (bool) {
-    require(getIsExistedUser(msg.sender), "user not found.");
-    require(balanceOf(msg.sender) < 10, "coins are short supply.");
-    require(getIsExistedUser(_to), "you are trying to send to a non-existent user.");
+    // require(getIsExistedUser(msg.sender), "user not found.");
+    // require(balanceOf(msg.sender) < 10, "coins are short supply.");
+    // require(getIsExistedUser(_to), "you are trying to send to a non-existent user.");
 
     messages.push(Message(_to, _message));
     transfer(_to, _amount);
